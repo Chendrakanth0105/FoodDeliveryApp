@@ -1,4 +1,5 @@
 import java.util.*;
+import java.sql.Date;
 import java.sql.*;
 
 public class App {
@@ -42,16 +43,18 @@ public class App {
         return username + "," + password;
     }
 
-    static String register() {
-        String username, password, email;
-        int mobilenumber;
+    static String register_DA() {
+        String username, password, email, mobilenumber;
+        Date DateOfJoining;
+        int Salary, Agent_Id;
+    
         Scanner input = new Scanner(System.in);
         System.out.println("Choose your username");
         username = input.nextLine();
         System.out.println("Enter password: ");
         password = input.nextLine();
         System.out.println("Enter your mobilenumber: ");
-        mobilenumber = Integer.parseInt(input.nextLine());
+        mobilenumber = input.nextLine();
         System.out.println("Enter Email id:");
         email = input.nextLine();
         return username + "," + password + "," + mobilenumber + "," + email;
@@ -77,17 +80,16 @@ public class App {
     static int countColumns(String value) {
         int length = 0;
         String tableName = value;
-        String query = "SELECT COUNT(*) FROM information_schema.columns WHERE table_name = ?";
+        String query = "SELECT COUNT(*) FROM information_schema.columns WHERE table_name = '" + tableName + "'";
         try {
             Connection connection = sqlconnect();
-            PreparedStatement pstmt = connection.prepareStatement(query);
-            pstmt.setString(1, tableName);
-            ResultSet resultset = pstmt.executeQuery();
+            Statement statement = connection.createStatement();
+            ResultSet resultset = statement.executeQuery(query);
             resultset.next(); // move the cursor to the first row
             length = resultset.getInt(1);
 
             connection.close();
-            pstmt.close();
+            statement.close();
             resultset.close();
 
         } catch (Exception e) {
@@ -118,6 +120,48 @@ public class App {
         return login;
     }
 
+    static String[] columnNames(String tablename) {
+        int len = countColumns(tablename);
+        String[][] names = new String[len][1];
+        String[] colNames = new String[len];
+        try {
+            Connection connection = sqlconnect();
+            Statement statement = connection.createStatement();
+            ResultSet resultset = statement.executeQuery(
+                    "SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = '" + tablename + "'");
+            int i = 0;
+            while (resultset.next()) {
+                names[i][0] = resultset.getString(1);
+                i++;
+            }
+            connection.close();
+            statement.close();
+            resultset.close();
+            for(int j=0; j<len; j++){
+                colNames[j]=names[j][0];
+            }
+            return colNames;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return null;
+    }
+
+    // static void updateDatabase(String details) {
+    // // int count;
+    // // count = countColumns(details);
+    // try {
+    // Connection connection = sqlconnect();
+    // Statement statement = connection.createStatement();
+    // ResultSet resultset = statement.executeQuery(
+    // "INSERT INTO " + tablename + " VALUES('" + enteredUsername + "" +
+    // enteredPassword + "'");
+    // } catch (Exception e) {
+    // System.out.println(e);
+    // }
+    // }
+
+    // ---------------------------------------------------------------------------------------------------------------------------------------------------
     public static void main(String[] args) throws Exception {
         // Print a welcome message
         print();
@@ -159,10 +203,17 @@ public class App {
                     }
 
                 } else if (choice == 2) {
+                    String details;
+                    System.out.println("");
+                    System.out.println("-----------------------Customer Registration-----------------------");
+                    System.out.println("");
+                    System.out.println("Customer Registration:");
+                    System.out.println("*********************");
+                    details = register();
 
                 } else if (choice == 3) {
                     break;
-                }else {
+                } else {
                     System.out.println("Invalid Choice!!!");
                 }
                 break;
@@ -179,17 +230,15 @@ public class App {
                     System.out.println("***********");
                     String Credentials = login();
                     String[] Creds = Credentials.split(",");
-                    int length = countColumns("DeliveryAgents");
                     if (Authenticate(Creds[0], Creds[1], "DeliveryAgents")) {
                         System.out.println("Login Success!!");
                         System.out.println("");
                     } else {
                         System.out.println("Invalid Credentials!!");
                     }
-                }
-                else if (opt == 2) {
+                } else if (opt == 2) {
                     break;
-                }else {
+                } else {
                     System.out.println("Invalid Choice!!!");
                 }
                 break;

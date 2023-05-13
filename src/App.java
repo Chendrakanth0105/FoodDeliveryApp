@@ -2,7 +2,6 @@ import java.util.*;
 import java.sql.Date;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.security.DrbgParameters.Reseed;
 import java.sql.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -34,7 +33,7 @@ public class App {
         print();
         Header("Welcome ");
         Scanner input = new Scanner(System.in);
-        System.out.println(RED+BOLD + "Choose your Interface:" + RESET);
+        System.out.println(RED + BOLD + "Choose your Interface:" + RESET);
         System.out.println(YELLOW + "a) Customer" + "\t" + "b) Delivery Agent" + "\t" + "c) Admin" + RESET);
         System.out.println(
                 GREEN + "Hint: Choose 'a' for Customer, 'b' for Delivery Agent, 'c' for Admin" + RESET);
@@ -58,7 +57,7 @@ public class App {
                         String Credentials = login();
                         Creds = Credentials.split(",");
                         if (Authenticate(Creds[0], Creds[1], "Customers")) {
-                            System.out.println(BLUE+BOLD + "Login Success!!" + RESET);
+                            System.out.println(BLUE + BOLD + "Login Success!!" + RESET);
                             System.out.println("");
                             System.out.println(YELLOW + "1. Change your password" + RESET);
                             System.out.println(YELLOW + "2. Order food" + RESET);
@@ -69,10 +68,11 @@ public class App {
                                 String pass = input.nextLine();
                                 if (pass.equals(Creds[1])) {
                                     System.out.println(
-                                            RED+BOLD + "Sorry... you are trying to use the previous password." + RESET);
+                                            RED + BOLD + "Sorry... you are trying to use the previous password."
+                                                    + RESET);
                                 } else {
                                     if (updatePassword("Customers", Creds[0], pass)) {
-                                        System.out.println(BLUE+BOLD + "Updated Successfully.." + RESET);
+                                        System.out.println(BLUE + BOLD + "Updated Successfully.." + RESET);
                                         System.out.println();
                                         System.out.println(YELLOW + "Do you want to exit (Y/N):" + RESET);
                                         exit = input.nextLine().charAt(0);
@@ -93,24 +93,24 @@ public class App {
                                 String[][] orders = placeOrder(input);
                                 confirmOrder(Creds[0], orders, input);
                                 System.out.println();
-                                System.out.println(YELLOW+"Do you want to exit (Y/N):"+RESET);
+                                System.out.println(YELLOW + "Do you want to exit (Y/N):" + RESET);
                                 exit = input.nextLine().charAt(0);
                                 if (exit == 'Y' || exit == 'y') {
                                     break;
                                 }
                             } else {
-                                System.out.println(RED+BOLD+"Wrong choice..."+RESET);
+                                System.out.println(RED + BOLD + "Wrong choice..." + RESET);
                             }
 
                         } else {
-                            System.out.println(RED+BOLD+"Invalid Credentials!!"+RESET);
+                            System.out.println(RED + BOLD + "Invalid Credentials!!" + RESET);
                         }
 
                     } else if (choice == 2) {
                         String details;
                         Header("Customer Registration");
-                        System.out.println(YELLOW+"Registration:"+RESET);
-                        System.out.println(BLUE+"------------"+RESET);
+                        System.out.println(YELLOW + "Registration:" + RESET);
+                        System.out.println(BLUE + "------------" + RESET);
                         details = register_customer(input);
                         String[] d = details.split(",");
                         String UserName = d[0];
@@ -123,12 +123,12 @@ public class App {
                             Boolean register = execute(query);
                             if (register == true) {
                                 System.out.println("");
-                                System.out.println(BLUE+BOLD+"Registered Successfully!!"+RESET);
+                                System.out.println(BLUE + BOLD + "Registered Successfully!!" + RESET);
                             }
                         } catch (Exception e) {
                             System.out.println(e);
                         }
-                        System.out.println(YELLOW+"Do you want to exit (Y/N):"+RESET);
+                        System.out.println(YELLOW + "Do you want to exit (Y/N):" + RESET);
                         exit = input.nextLine().charAt(0);
                         if (exit == 'Y' || exit == 'y') {
                             break;
@@ -136,41 +136,42 @@ public class App {
                     } else if (choice == 3) {
                         break;
                     } else {
-                        System.out.println(RED+BOLD+"Invalid Choice!!!"+RESET);
+                        System.out.println(RED + BOLD + "Invalid Choice!!!" + RESET);
                     }
                 }
                 break;
             case 'b':
                 while (true) {
                     Header("Agent Interface");
-                    System.out.println(YELLOW+"1. Login"+RESET);
-                    System.out.println(YELLOW+"2. Exit. "+RESET);
+                    System.out.println(YELLOW + "1. Login" + RESET);
+                    System.out.println(YELLOW + "2. Exit. " + RESET);
                     int opt = Integer.parseInt(input.nextLine());
                     if (opt == 1) {
                         Header("Agent Login");
-                        System.out.println(YELLOW+"Login:"+RESET);
-                        System.out.println(BLUE+"-----"+RESET);
+                        System.out.println(YELLOW + "Login:" + RESET);
+                        System.out.println(BLUE + "-----" + RESET);
                         String Credentials = login();
                         Creds = Credentials.split(",");
                         if (Authenticate(Creds[0], Creds[1], "DeliveryAgents")) {
                             System.out.println("");
-                            System.out.println(BLUE+BOLD+"Login Success!!"+RESET);
+                            System.out.println(BLUE + BOLD + "Login Success!!" + RESET);
                             System.out.println("");
                             System.out.println();
-                            System.out.println(YELLOW+"1. Change Password"+RESET);
-                            System.out.println(YELLOW+"2. Your Dashboard"+RESET);
+                            System.out.println(YELLOW + "1. Change Password" + RESET);
+                            System.out.println(YELLOW + "2. Your Dashboard" + RESET);
                             choice = Integer.parseInt(input.nextLine());
                             if (choice == 1) {
                                 Header("Change Password");
-                                System.out.println(YELLOW+"Please enter a new password:"+RESET);
+                                System.out.println(YELLOW + "Please enter a new password:" + RESET);
                                 String pass = input.nextLine();
                                 if (pass.equals(Creds[1])) {
-                                    System.out.println(RED+BOLD+"Sorry... you are trying to use the previous password."+RESET);
+                                    System.out.println(RED + BOLD
+                                            + "Sorry... you are trying to use the previous password." + RESET);
                                 } else {
                                     if (updatePassword("DeliveryAgents", Creds[0], pass)) {
-                                        System.out.println(BLUE+BOLD+"Updated Successfully.."+RESET);
+                                        System.out.println(BLUE + BOLD + "Updated Successfully.." + RESET);
                                         System.out.println();
-                                        System.out.println(YELLOW+"Do you want to exit (Y/N):"+RESET);
+                                        System.out.println(YELLOW + "Do you want to exit (Y/N):" + RESET);
                                         exit = input.nextLine().charAt(0);
                                         if (exit == 'Y' || exit == 'y') {
                                             break;
@@ -187,22 +188,22 @@ public class App {
                                 Header("Over all Customer Ratings");
                                 performance_DA(id);
                                 System.out.println();
-                                System.out.println(YELLOW+"Do you want to exit (Y/N)"+RESET);
+                                System.out.println(YELLOW + "Do you want to exit (Y/N)" + RESET);
                                 exit = input.nextLine().charAt(0);
                                 if (exit == 'Y' || exit == 'y') {
                                     break;
                                 }
                             } else {
-                                System.out.println(RED+BOLD+"Wrong choice..."+RESET);
+                                System.out.println(RED + BOLD + "Wrong choice..." + RESET);
                             }
 
                         } else {
-                            System.out.println(RED+BOLD+"Invalid Credentials!!"+RESET);
+                            System.out.println(RED + BOLD + "Invalid Credentials!!" + RESET);
                         }
                     } else if (opt == 2) {
                         break;
                     } else {
-                        System.out.println(RED+BOLD+"Invalid Choice!!!"+RESET);
+                        System.out.println(RED + BOLD + "Invalid Choice!!!" + RESET);
                     }
 
                 }
@@ -210,41 +211,41 @@ public class App {
                 break;
             case 'c':
                 Header("Admin Interface");
-                System.out.println(YELLOW+"1. Login"+RESET);
-                System.out.println(YELLOW+"2. Exit"+RESET);
+                System.out.println(YELLOW + "1. Login" + RESET);
+                System.out.println(YELLOW + "2. Exit" + RESET);
                 int option = Integer.parseInt(input.nextLine());
                 if (option == 1) {
                     Header("Admin Login");
-                    System.out.println(YELLOW+"Login:"+RESET);
-                    System.out.println(BLUE+"-----"+RESET);
+                    System.out.println(YELLOW + "Login:" + RESET);
+                    System.out.println(BLUE + "-----" + RESET);
                     String Credentials = login();
                     Creds = Credentials.split(",");
                     if (Authenticate(Creds[0], Creds[1], "Admin")) {
                         System.out.println("");
-                        System.out.println(BLUE+BOLD+"Login Success!!"+RESET);
+                        System.out.println(BLUE + BOLD + "Login Success!!" + RESET);
                         System.out.println("");
 
                         Header("Welcome " + Creds[0]);
                         Boolean loop = true;
                         while (loop == true) {
-                            System.out.println(YELLOW+"Quick Actions: "+RESET);
-                            System.out.println(BLUE+"-------------"+RESET);
+                            System.out.println(YELLOW + "Quick Actions: " + RESET);
+                            System.out.println(BLUE + "-------------" + RESET);
                             System.out.println("");
                             smallHeader("Edit Operations");
-                            System.out.println(RED+"ADD: "+RESET);
-                            System.out.println(YELLOW+"1. Add an Admin "+RESET);
-                            System.out.println(YELLOW+"2. Hire a Delivery Agent"+RESET);
-                            System.out.println(YELLOW+"3. Add a new dish"+RESET);
+                            System.out.println(RED + "ADD: " + RESET);
+                            System.out.println(YELLOW + "1. Add an Admin " + RESET);
+                            System.out.println(YELLOW + "2. Hire a Delivery Agent" + RESET);
+                            System.out.println(YELLOW + "3. Add a new dish" + RESET);
                             System.out.println("");
-                            System.out.println(RED+"Delete:"+RESET);
-                            System.out.println(YELLOW+"4. Remove an Admin"+RESET);
-                            System.out.println(YELLOW+"5. Fire a Delivery Agent"+RESET);
-                            System.out.println(YELLOW+"6. Remove a dish"+RESET);
+                            System.out.println(RED + "Delete:" + RESET);
+                            System.out.println(YELLOW + "4. Remove an Admin" + RESET);
+                            System.out.println(YELLOW + "5. Fire a Delivery Agent" + RESET);
+                            System.out.println(YELLOW + "6. Remove a dish" + RESET);
                             System.out.println("");
                             smallHeader("Other Operations");
-                            System.out.println(YELLOW+"7. Display Dashboard"+RESET);
-                            System.out.println(YELLOW+"8. Exit"+RESET);
-                            System.out.println(BLUE+"Hint: Choose 1, 2, 3, 4, 5, 6, 7 or 8..."+RESET);
+                            System.out.println(YELLOW + "7. Display Dashboard" + RESET);
+                            System.out.println(YELLOW + "8. Exit" + RESET);
+                            System.out.println(BLUE + "Hint: Choose 1, 2, 3, 4, 5, 6, 7 or 8..." + RESET);
                             option = Integer.parseInt(input.nextLine());
                             String UserName, Password, EMail, MobileNumber, query, item, description;
                             int price;
@@ -252,8 +253,8 @@ public class App {
                             switch (option) {
                                 case 1:
                                     Header("Adding Admin");
-                                    System.out.println(YELLOW+"Registration"+RESET);
-                                    System.out.println(BLUE+"------------"+RESET);
+                                    System.out.println(YELLOW + "Registration" + RESET);
+                                    System.out.println(BLUE + "------------" + RESET);
                                     String values = adminReg(input);
                                     String[] a = values.split(",");
                                     UserName = a[0];
@@ -264,17 +265,17 @@ public class App {
                                         Boolean success = execute(query);
                                         if (success == true) {
                                             System.out.println("");
-                                            System.out.println(BLUE+BOLD+"Registration Successfull!!"+RESET);
+                                            System.out.println(BLUE + BOLD + "Registration Successfull!!" + RESET);
                                             System.out.println("");
                                         }
                                     } catch (Exception e) {
-                                        System.out.println(RED+BOLD+e+RESET);
+                                        System.out.println(RED + BOLD + e + RESET);
                                     }
                                     break;
                                 case 2:
                                     Header("Hiring an Employee");
-                                    System.out.println(YELLOW+"Registration"+RESET);
-                                    System.out.println(BLUE+"------------"+RESET);
+                                    System.out.println(YELLOW + "Registration" + RESET);
+                                    System.out.println(BLUE + "------------" + RESET);
                                     String details = register_DA(input);
                                     String[] b = details.split(",");
                                     Date DateOfJoining;
@@ -295,18 +296,18 @@ public class App {
                                         Boolean success = execute(query);
                                         if (success == true) {
                                             System.out.println("");
-                                            System.out.println(BLUE+BOLD+"Registration Successfull!!"+RESET);
+                                            System.out.println(BLUE + BOLD + "Registration Successfull!!" + RESET);
                                             System.out.println("");
                                         }
                                     } catch (Exception e) {
-                                        System.out.println(RED+BOLD+e+RESET);
+                                        System.out.println(RED + BOLD + e + RESET);
                                     }
                                     query = "INSERT INTO AgentPerformance(Agent_Id,Overall_Rating) values('" + Agent_Id
                                             + "',NULL)";
                                     try {
                                         execute(query);
                                     } catch (Exception e) {
-                                        System.out.println(RED+BOLD+e+RESET);
+                                        System.out.println(RED + BOLD + e + RESET);
                                     }
                                     break;
                                 case 3:
@@ -323,38 +324,38 @@ public class App {
                                         Boolean success = execute(query);
                                         if (success == true) {
                                             System.out.println("");
-                                            System.out.println(BLUE+BOLD+"Added Successfull!!"+RESET);
+                                            System.out.println(BLUE + BOLD + "Added Successfull!!" + RESET);
                                             System.out.println("");
                                         }
                                     } catch (Exception e) {
-                                        System.out.println(RED+BOLD+e+RESET);
+                                        System.out.println(RED + BOLD + e + RESET);
                                     }
                                     break;
                                 case 4:
                                     Header(" Remove an Admin");
-                                    System.out.println(RED+"Removing Admin Access:"+RESET);
-                                    System.out.println(BLUE+"---------------------"+RESET);
+                                    System.out.println(RED + "Removing Admin Access:" + RESET);
+                                    System.out.println(BLUE + "---------------------" + RESET);
                                     UserName = remove(input);
                                     query = "DELETE FROM Admin WHERE UserName = '" + UserName + "'";
                                     try {
                                         Boolean success = execute(query);
                                         if (success == true) {
                                             System.out.println("");
-                                            System.out.println(BLUE+BOLD+"Deactivated Admin Successfull!!"+RESET);
+                                            System.out.println(BLUE + BOLD + "Deactivated Admin Successfull!!" + RESET);
                                             System.out.println("");
                                         }
                                     } catch (Exception e) {
-                                        System.out.println(RED+BOLD+e+RESET);
+                                        System.out.println(RED + BOLD + e + RESET);
                                     }
 
                                     break;
                                 case 5:
                                     Header("Fire a Delivery Agent");
-                                    System.out.println(RED+"Agent Details:"+RESET);
-                                    System.out.println(BLUE+"-------------"+RESET);
+                                    System.out.println(RED + "Agent Details:" + RESET);
+                                    System.out.println(BLUE + "-------------" + RESET);
                                     UserName = remove(input);
                                     int id = 0;
-                                    query = "SELECT Agent_Id FROM DeliveryAgents WHERE UserName = '"+UserName+"'";
+                                    query = "SELECT Agent_Id FROM DeliveryAgents WHERE UserName = '" + UserName + "'";
                                     int r = 0;
                                     try {
                                         ResultSet resultset = executeQuery(query);
@@ -364,49 +365,51 @@ public class App {
                                         }
                                         resultset.close();
                                     } catch (Exception e) {
-                                        System.out.println(RED+BOLD+e+RESET);
+                                        System.out.println(RED + BOLD + e + RESET);
                                     }
                                     query = "DELETE FROM AgentPerformance WHERE Agent_Id = '" + id + "'";
                                     try {
                                         execute(query);
                                     } catch (Exception e) {
-                                        System.out.println(RED+BOLD+e+RESET);
+                                        System.out.println(RED + BOLD + e + RESET);
                                     }
                                     query = "DELETE FROM DeliveryAgents WHERE UserName = '" + UserName + "'";
                                     try {
                                         Boolean success = execute(query);
                                         if (success == true) {
                                             System.out.println("");
-                                            System.out.println(BLUE+BOLD+"Fired " + UserName + " Successfull!!"+RESET);
+                                            System.out.println(
+                                                    BLUE + BOLD + "Fired " + UserName + " Successfull!!" + RESET);
                                             System.out.println("");
                                         }
                                     } catch (Exception e) {
-                                        System.out.println(RED+BOLD+e+RESET);
+                                        System.out.println(RED + BOLD + e + RESET);
                                     }
                                     break;
 
                                 case 6:
                                     Header("Remove a Dish");
-                                    System.out.println(RED+"Agent Details:"+RESET);
-                                    System.out.println(BLUE+"-------------"+RESET);
+                                    System.out.println(RED + "Agent Details:" + RESET);
+                                    System.out.println(BLUE + "-------------" + RESET);
                                     item = removeMenu(input);
                                     query = "DELETE FROM Menu WHERE Item = '" + item + "'";
                                     try {
                                         Boolean success = execute(query);
                                         if (success == true) {
                                             System.out.println("");
-                                            System.out.println(BLUE+BOLD+"Deleted " + item + " Successfull!!"+RESET);
+                                            System.out.println(
+                                                    BLUE + BOLD + "Deleted " + item + " Successfull!!" + RESET);
                                             System.out.println("");
                                         }
                                     } catch (Exception e) {
-                                        System.out.println(RED+BOLD+e+RESET);
+                                        System.out.println(RED + BOLD + e + RESET);
                                     }
                                     break;
                                 case 7:
                                     Header("Dashboard");
                                     System.out.println();
-                                    System.out.println(YELLOW+"1. Detailed Information"+RESET);
-                                    System.out.println(YELLOW+"2. Analytics"+RESET);
+                                    System.out.println(YELLOW + "1. Detailed Information" + RESET);
+                                    System.out.println(YELLOW + "2. Analytics" + RESET);
                                     option = Integer.parseInt(input.nextLine());
                                     if (option == 1) {
                                         smallHeader("Delivery Agent Details");
@@ -415,8 +418,7 @@ public class App {
                                         AllDAPerformances();
                                         smallHeader("Orders Placed");
                                         displayOrders();
-                                    }
-                                    else if(option == 2){
+                                    } else if (option == 2) {
                                         smallHeader("ANALYTICS");
                                         analytics(input);
                                     }
@@ -427,17 +429,17 @@ public class App {
                             }
                         }
                     } else {
-                        System.out.println(RED+BOLD+"Invalid Credentials!!"+RESET);
+                        System.out.println(RED + BOLD + "Invalid Credentials!!" + RESET);
                     }
 
                 } else if (option == 2) {
                     break;
                 } else {
-                    System.out.println(RED+BOLD+"Invalid Choice!!!"+RESET);
+                    System.out.println(RED + BOLD + "Invalid Choice!!!" + RESET);
                 }
                 break;
             default:
-                System.out.println(RED+BOLD+"Invalid Choice!!"+RESET);
+                System.out.println(RED + BOLD + "Invalid Choice!!" + RESET);
         }
 
     }
@@ -450,7 +452,7 @@ public class App {
                     "Chendrakanth@0105");
             return connection;
         } catch (Exception e) {
-            System.out.println(RED+BOLD+e+RESET);
+            System.out.println(RED + BOLD + e + RESET);
         }
         return null;
     }
@@ -463,7 +465,7 @@ public class App {
             connection.close();
             statement.close();
         } catch (Exception e) {
-            System.out.println(RED+BOLD+e+RESET);
+            System.out.println(RED + BOLD + e + RESET);
             ;
         }
 
@@ -477,7 +479,7 @@ public class App {
             ResultSet resultset = statement.executeQuery(query);
             return resultset;
         } catch (Exception e) {
-            System.out.println(RED+BOLD+e+RESET);
+            System.out.println(RED + BOLD + e + RESET);
         }
 
         return null;
@@ -486,11 +488,22 @@ public class App {
     // -----------------------------------------------------------------------PRINT--------------------------------------------------------------------------------------
     static void print() {
         System.out.println(" ");
-        System.out.println(BLUE+BACKGROUND_WHITE+"+----------------------------------------------------------------------------------------------------------------------------------------------------+"+RESET+"");
-        System.out.println(BLUE+BACKGROUND_WHITE+"+----------------------------------------------------------------------------------------------------------------------------------------------------+"+RESET+"");
-        System.out.println(BLUE+BACKGROUND_WHITE+"||"+"                                                                  "+BACKGROUND_BLACK+WHITE+"HealthyDOOR"+YELLOW+":)"+BACKGROUND_WHITE+""+"                                                                   ||"+BLUE+RESET);
-        System.out.println(BLUE+BACKGROUND_WHITE+"+----------------------------------------------------------------------------------------------------------------------------------------------------+"+RESET+"");
-        System.out.println(BLUE+BACKGROUND_WHITE+"+----------------------------------------------------------------------------------------------------------------------------------------------------+"+RESET+"\n");
+        System.out.println(BLUE + BACKGROUND_WHITE
+                + "+----------------------------------------------------------------------------------------------------------------------------------------------------+"
+                + RESET + "");
+        System.out.println(BLUE + BACKGROUND_WHITE
+                + "+----------------------------------------------------------------------------------------------------------------------------------------------------+"
+                + RESET + "");
+        System.out.println(
+                BLUE + BACKGROUND_WHITE + "||" + "                                                                  "
+                        + BACKGROUND_BLACK + WHITE + "HealthyDOOR" + YELLOW + ":)" + BACKGROUND_WHITE + ""
+                        + "                                                                   ||" + BLUE + RESET);
+        System.out.println(BLUE + BACKGROUND_WHITE
+                + "+----------------------------------------------------------------------------------------------------------------------------------------------------+"
+                + RESET + "");
+        System.out.println(BLUE + BACKGROUND_WHITE
+                + "+----------------------------------------------------------------------------------------------------------------------------------------------------+"
+                + RESET + "\n");
         System.out.println("");
     }
 
@@ -499,7 +512,7 @@ public class App {
                 BLUE + "+-------------------------------------------------------------------------------------------------------------------------+"
                         + RESET);
         System.out.print("                                                           ");
-        System.out.printf("%2s", RED+BOLD + value + RESET);
+        System.out.printf("%2s", RED + BOLD + value + RESET);
         System.out.print("                                                          \n");
         System.out.println(
                 BLUE + "+-------------------------------------------------------------------------------------------------------------------------+\n"
@@ -524,21 +537,23 @@ public class App {
             System.out.println(" ");
             ResultSet resultset = executeQuery(query);
             if (resultset.next()) {
-                System.out.printf(BLUE+"|%-20s| %-80s| %8s| %7s|\n", "Item", "Description", "Price", "Rating"+RESET);
+                System.out.printf(BLUE + "|%-20s| %-80s| %8s| %7s|\n", "Item", "Description", "Price",
+                        "Rating" + RESET);
                 System.out.println(
                         BLUE + "+-------------------------------------------------------------------------------------------------------------------------+"
                                 + RESET);
                 do {
-                    System.out.printf(BLUE+"|%-20s| %-80s| %8s| %7s|\n", resultset.getString(1), resultset.getString(2),
-                            resultset.getString(3), resultset.getString(4)+RESET);
+                    System.out.printf(BLUE + "|%-20s| %-80s| %8s| %7s|\n", resultset.getString(1),
+                            resultset.getString(2),
+                            resultset.getString(3), resultset.getString(4) + RESET);
                 } while (resultset.next());
             } else {
-                System.out.println(BLUE+BOLD+"Restaurant Is Closed!!"+RESET);
+                System.out.println(BLUE + BOLD + "Restaurant Is Closed!!" + RESET);
             }
             System.out.println(" ");
             resultset.close();
         } catch (Exception e) {
-            System.out.println(RED+BOLD+e+RESET);
+            System.out.println(RED + BOLD + e + RESET);
         }
     }
 
@@ -551,85 +566,88 @@ public class App {
                         "+-------------------------------------------------------------------------------------------------------------------------+");
 
                 System.out.println("");
-                System.out.printf(RED+"|%-10s| %-15s| %-15s| %-20s| %-15s| %-10s| %10s|\n", "UserName", "Password",
+                System.out.printf(RED + "|%-10s| %-15s| %-15s| %-20s| %-15s| %-10s| %10s|\n", "UserName", "Password",
                         "MobileNumber",
-                        "EMail", "DateOfJoining", "Salary", "Agent_Id"+RESET);
+                        "EMail", "DateOfJoining", "Salary", "Agent_Id" + RESET);
                 System.out.println(
-                        BLUE+"+-------------------------------------------------------------------------------------------------------------------------+"+RESET);
+                        BLUE + "+-------------------------------------------------------------------------------------------------------------------------+"
+                                + RESET);
                 do {
-                    System.out.printf(GREEN+"|%-10s| %-15s| %-15s| %-20s| %-15s| %-10s| %10s|\n", resultset.getString(1),
+                    System.out.printf(GREEN + "|%-10s| %-15s| %-15s| %-20s| %-15s| %-10s| %10s|\n",
+                            resultset.getString(1),
                             resultset.getString(2),
                             resultset.getString(3), resultset.getString(4), resultset.getString(5),
-                            resultset.getString(6), resultset.getString(7)+RESET);
+                            resultset.getString(6), resultset.getString(7) + RESET);
                 } while (resultset.next());
                 System.out.println(
-                        BLUE+"+-------------------------------------------------------------------------------------------------------------------------+"+RESET);
+                        BLUE + "+-------------------------------------------------------------------------------------------------------------------------+"
+                                + RESET);
 
             } else {
-                System.out.println(RED+BOLD+"No Employees"+RESET);
+                System.out.println(RED + BOLD + "No Employees" + RESET);
             }
             System.out.println(" ");
             resultset.close();
         } catch (Exception e) {
-            System.out.println(RED+BOLD+e+RESET);
+            System.out.println(RED + BOLD + e + RESET);
         }
     }
 
-    static void analytics(Scanner input){
+    static void analytics(Scanner input) {
         String query = "SELECT COUNT(*) AS total_rows FROM orders";
         int total_orders = 0;
         int i = 0;
         String[] items = new String[100];
         String[] count = new String[100];
-        try{
+        try {
             ResultSet resultset = executeQuery(query);
-            while(resultset.next()){
+            while (resultset.next()) {
                 total_orders = resultset.getInt(1);
             }
-        }catch(Exception e){
-            System.out.println(RED+BOLD+e+RESET);
+        } catch (Exception e) {
+            System.out.println(RED + BOLD + e + RESET);
         }
 
         System.out.println("");
-        System.out.println(YELLOW+"Total number of orders recieved are : "+RESET);
+        System.out.println(YELLOW + "Total number of orders recieved are : " + RESET);
         System.out.println(total_orders);
         System.out.println();
 
         query = "SELECT AMOUNT FROM Orders";
         int total_Amount = 0;
-        try{
+        try {
             ResultSet resultset = executeQuery(query);
-            while(resultset.next()){
+            while (resultset.next()) {
                 total_Amount += resultset.getInt(1);
             }
-        }catch(Exception e){
-            System.out.println(RED+BOLD+e+RESET);
+        } catch (Exception e) {
+            System.out.println(RED + BOLD + e + RESET);
         }
 
         System.out.println("");
-        System.out.println(YELLOW+"Total Revenue generated : "+RESET);
+        System.out.println(YELLOW + "Total Revenue generated : " + RESET);
         System.out.println(total_Amount);
         System.out.println();
 
         query = "SELECT item, COUNT(*) AS item_count FROM (SELECT TRIM(SUBSTRING_INDEX(SUBSTRING_INDEX(Ordered_Items, ',', numbers.n), ',', -1)) AS item FROM  (SELECT 1 + a.N + b.N * 10 AS n  FROM  (SELECT 0 AS N UNION ALL SELECT 1 UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL SELECT 4 UNION ALL  SELECT 5 UNION ALL SELECT 6 UNION ALL SELECT 7 UNION ALL SELECT 8 UNION ALL SELECT 9) AS a         CROSS JOIN         (SELECT 0 AS N UNION ALL SELECT 1 UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL SELECT 4 UNION ALL         SELECT 5 UNION ALL SELECT 6 UNION ALL SELECT 7 UNION ALL SELECT 8 UNION ALL SELECT 9) AS b     ) numbers     INNER JOIN `orders` ON CHAR_LENGTH(Ordered_Items) - CHAR_LENGTH(REPLACE(Ordered_Items, ',', '')) >= numbers.n - 1 ) items GROUP BY item;";
-        try{
+        try {
             ResultSet resultset = executeQuery(query);
-            while(resultset.next()){
-                 items[i] = resultset.getString(1);
-                 count[i] = resultset.getString(2);
-                 i = i+1;
+            while (resultset.next()) {
+                items[i] = resultset.getString(1);
+                count[i] = resultset.getString(2);
+                i = i + 1;
             }
-        }catch(Exception e){
-            System.out.println(RED+BOLD+e+RESET);
+        } catch (Exception e) {
+            System.out.println(RED + BOLD + e + RESET);
         }
         System.out.println("");
         System.out.println("Count of Items ordered : ");
         System.out.println();
         System.out.println("+------------------------+");
-        System.out.printf(BLUE+"|%-15s| %-5s\n","Items","Count"+RESET);
+        System.out.printf(BLUE + "|%-15s| %-5s\n", "Items", "Count" + RESET);
         System.out.println("+------------------------+");
-        for(int j = 0; j<i; j++){
-            System.out.printf(BLUE+"|%-15s| %-5s\n",items[j],count[j]+RESET);
+        for (int j = 0; j < i; j++) {
+            System.out.printf(BLUE + "|%-15s| %-5s\n", items[j], count[j] + RESET);
         }
         System.out.println("+------------------------+");
     }
@@ -641,30 +659,33 @@ public class App {
             ResultSet resultset = executeQuery(query);
             if (resultset.next()) {
                 System.out.println(
-                        BLUE+"+-------------------------------------------------------------------------------------------------------------------------------------------+"+RESET);
+                        BLUE + "+-------------------------------------------------------------------------------------------------------------------------------------------+"
+                                + RESET);
 
-                System.out.printf(RED+"|%-20s| %-20s| %-30s| %-20s| %-20s| %-20s|\n", "Order_Id", "Customer",
-                        "Ordered_Items", "Amount", "Agent_Id", "DeliveryStatus"+RESET);
+                System.out.printf(RED + "|%-20s| %-20s| %-30s| %-20s| %-20s| %-20s|\n", "Order_Id", "Customer",
+                        "Ordered_Items", "Amount", "Agent_Id", "DeliveryStatus" + RESET);
                 System.out.println(
-                        BLUE+"+-------------------------------------------------------------------------------------------------------------------------------------------+"+RESET);
+                        BLUE + "+-------------------------------------------------------------------------------------------------------------------------------------------+"
+                                + RESET);
                 do {
-                    System.out.printf(GREEN+"|%-20s| %-20s| %-30s| %-20s| %-20s| %-20s|\n", resultset.getString(1),
+                    System.out.printf(GREEN + "|%-20s| %-20s| %-30s| %-20s| %-20s| %-20s|\n", resultset.getString(1),
                             resultset.getString(2),
                             resultset.getString(3),
                             resultset.getString(4),
                             resultset.getString(5),
-                            resultset.getString(6)+RESET);
+                            resultset.getString(6) + RESET);
                 } while (resultset.next());
                 System.out.println(
-                        BLUE+"+-------------------------------------------------------------------------------------------------------------------------------------------+"+RESET);
+                        BLUE + "+-------------------------------------------------------------------------------------------------------------------------------------------+"
+                                + RESET);
 
             } else {
-                System.out.println(RED+BOLD+"No Orders Placed!!"+RESET);
+                System.out.println(RED + BOLD + "No Orders Placed!!" + RESET);
             }
             System.out.println(" ");
             resultset.close();
         } catch (Exception e) {
-            System.out.println(RED+BOLD+e+RESET);
+            System.out.println(RED + BOLD + e + RESET);
         }
     }
 
@@ -674,24 +695,27 @@ public class App {
             ResultSet resultset = executeQuery(query);
             if (resultset.next()) {
                 System.out.println(
-                        BLUE+"+-----------------------------------------------------------------------------------------------------------------------------+"+RESET);
+                        BLUE + "+-----------------------------------------------------------------------------------------------------------------------------+"
+                                + RESET);
 
-                System.out.printf(RED+"|%-20s| %-20s| %-40s| %-10s| %-10s| %-20s|\n", "Order_Id", "Customer",
-                        "Ordered_Items", "Amount", "Agent_Id", "DeliveryStatus"+RESET);
+                System.out.printf(RED + "|%-20s| %-20s| %-40s| %-10s| %-10s| %-20s|\n", "Order_Id", "Customer",
+                        "Ordered_Items", "Amount", "Agent_Id", "DeliveryStatus" + RESET);
                 System.out.println(
-                        BLUE+"+-----------------------------------------------------------------------------------------------------------------------------+"+RESET);
+                        BLUE + "+-----------------------------------------------------------------------------------------------------------------------------+"
+                                + RESET);
                 do {
-                    System.out.printf(GREEN+"|%-20s| %-20s| %-40s| %-10s| %-10s| %-20s|\n", resultset.getString(1),
+                    System.out.printf(GREEN + "|%-20s| %-20s| %-40s| %-10s| %-10s| %-20s|\n", resultset.getString(1),
                             resultset.getString(2),
                             resultset.getString(3), resultset.getString(4), resultset.getString(5),
-                            resultset.getString(6)+RESET);
+                            resultset.getString(6) + RESET);
                 } while (resultset.next());
                 System.out.println(
-                        BLUE+"+-----------------------------------------------------------------------------------------------------------------------------+"+RESET);
+                        BLUE + "+-----------------------------------------------------------------------------------------------------------------------------+"
+                                + RESET);
 
             }
         } catch (Exception e) {
-            System.out.println(RED+BOLD+e+RESET);
+            System.out.println(RED + BOLD + e + RESET);
         }
     }
 
@@ -702,18 +726,19 @@ public class App {
             ResultSet resultset = executeQuery(query);
             if (resultset.next()) {
                 System.out.println(
-                        BLUE+"+-----------------------------------------------+"+RESET);
-                System.out.printf(RED+"|%-20s| %-20s|\n", "Agent_Id", "Overall_Rating"+RESET);
+                        BLUE + "+-----------------------------------------------+" + RESET);
+                System.out.printf(RED + "|%-20s| %-20s|\n", "Agent_Id", "Overall_Rating" + RESET);
                 System.out.println(
-                        BLUE+"+-----------------------------------------------+"+RESET);
+                        BLUE + "+-----------------------------------------------+" + RESET);
                 do {
-                    System.out.printf(GREEN+"|%-20s| %-20s|\n", resultset.getString(1), resultset.getString(2)+RESET);
+                    System.out.printf(GREEN + "|%-20s| %-20s|\n", resultset.getString(1),
+                            resultset.getString(2) + RESET);
                 } while (resultset.next());
                 System.out.println(
-                        BLUE+"+-----------------------------------------------+"+RESET);
+                        BLUE + "+-----------------------------------------------+" + RESET);
             }
         } catch (Exception e) {
-            System.out.println(RED+BOLD+e+RESET);
+            System.out.println(RED + BOLD + e + RESET);
         }
     }
 
@@ -723,19 +748,19 @@ public class App {
             ResultSet resultset = executeQuery(query);
             if (resultset.next()) {
                 System.out.println(
-                        BLUE+"+-----------------------------------------------------------------------+"+RESET);
-                System.out.printf(RED+"|%-20s| %-20s| %-30s|\n", "Agent_Id", "Agent Name", "Overall_Rating"+RESET);
+                        BLUE + "+-----------------------------------------------------------------------+" + RESET);
+                System.out.printf(RED + "|%-20s| %-20s| %-30s|\n", "Agent_Id", "Agent Name", "Overall_Rating" + RESET);
                 System.out.println(
-                        BLUE+"+-----------------------------------------------------------------------+"+RESET);
+                        BLUE + "+-----------------------------------------------------------------------+" + RESET);
                 do {
-                    System.out.printf(GREEN+"|%-20s| %-20s| %-30s|\n", resultset.getString(1), resultset.getString(2),
-                            resultset.getString(3)+RESET);
+                    System.out.printf(GREEN + "|%-20s| %-20s| %-30s|\n", resultset.getString(1), resultset.getString(2),
+                            resultset.getString(3) + RESET);
                 } while (resultset.next());
                 System.out.println(
-                        BLUE+"+-----------------------------------------------------------------------+"+RESET);
+                        BLUE + "+-----------------------------------------------------------------------+" + RESET);
             }
         } catch (Exception e) {
-            System.out.println(RED+BOLD+e+RESET);
+            System.out.println(RED + BOLD + e + RESET);
         }
     }
 
@@ -743,9 +768,9 @@ public class App {
     static String login() {
         System.out.println();
         Scanner input = new Scanner(System.in);
-        System.out.print(YELLOW+"Username: "+RESET);
+        System.out.print(YELLOW + "Username: " + RESET);
         String username = input.nextLine();
-        System.out.print(YELLOW+"Password: "+RESET);
+        System.out.print(YELLOW + "Password: " + RESET);
         String password = input.nextLine();
         System.out.println();
         return username + "," + password;
@@ -765,7 +790,7 @@ public class App {
             }
             return login;
         } catch (SQLException e) {
-            System.out.println(RED+BOLD + e.getMessage() + RESET);
+            System.out.println(RED + BOLD + e.getMessage() + RESET);
         }
         return login;
     }
@@ -773,13 +798,13 @@ public class App {
 
     static String register_customer(Scanner input) {
         String username, password, email, mobilenumber;
-        System.out.println(YELLOW+"Choose your username"+RESET);
+        System.out.println(YELLOW + "Choose your username" + RESET);
         username = input.nextLine();
-        System.out.println(YELLOW+"Enter password: "+RESET);
+        System.out.println(YELLOW + "Enter password: " + RESET);
         password = input.nextLine();
-        System.out.println(YELLOW+"Enter your mobilenumber: "+RESET);
+        System.out.println(YELLOW + "Enter your mobilenumber: " + RESET);
         mobilenumber = input.nextLine();
-        System.out.println(YELLOW+"Enter Email id:"+RESET);
+        System.out.println(YELLOW + "Enter Email id:" + RESET);
         email = input.nextLine();
         return username + "," + password + "," + mobilenumber + "," + email;
     }
@@ -788,18 +813,18 @@ public class App {
         String username, password, email, mobilenumber;
         String DateOfJoining;
         int Salary, Agent_Id;
-        System.out.println(YELLOW+"Choose your username"+RESET);
+        System.out.println(YELLOW + "Choose your username" + RESET);
         username = input.nextLine();
-        System.out.println(YELLOW+"Generate password: "+RESET);
+        System.out.println(YELLOW + "Generate password: " + RESET);
         password = input.nextLine();
-        System.out.println(YELLOW+"Enter his mobilenumber: "+RESET);
+        System.out.println(YELLOW + "Enter his mobilenumber: " + RESET);
         mobilenumber = input.nextLine();
-        System.out.println(YELLOW+"Enter Email id:"+RESET);
+        System.out.println(YELLOW + "Enter Email id:" + RESET);
         email = input.nextLine();
         DateOfJoining = CurrentDate();
-        System.out.println(YELLOW+"Enter the Salary:  "+RESET);
+        System.out.println(YELLOW + "Enter the Salary:  " + RESET);
         Salary = Integer.parseInt(input.nextLine());
-        System.out.println(YELLOW+"Generate an Agent_id:"+RESET);
+        System.out.println(YELLOW + "Generate an Agent_id:" + RESET);
         Agent_Id = Integer.parseInt(input.nextLine());
         return username + "," + password + "," + mobilenumber + "," + email + "," + DateOfJoining + "," + Salary + ","
                 + Agent_Id;
@@ -807,9 +832,9 @@ public class App {
 
     static String adminReg(Scanner input) {
         String username, password;
-        System.out.println(YELLOW+"Choose your username"+RESET);
+        System.out.println(YELLOW + "Choose your username" + RESET);
         username = input.nextLine();
-        System.out.println(YELLOW+"Enter password: "+RESET);
+        System.out.println(YELLOW + "Enter password: " + RESET);
         password = input.nextLine();
         return username + "," + password;
 
@@ -822,7 +847,7 @@ public class App {
         try {
             success = execute(query);
         } catch (Exception e) {
-            System.out.println(RED+BOLD + e + RESET);
+            System.out.println(RED + BOLD + e + RESET);
         }
         return success;
     }
@@ -830,11 +855,11 @@ public class App {
     static String addMenu(Scanner input) {
         String item, description;
         int price;
-        System.out.println(YELLOW+"Add the dish name: "+RESET);
+        System.out.println(YELLOW + "Add the dish name: " + RESET);
         item = input.nextLine();
-        System.out.println(YELLOW+"Describe the item: "+RESET);
+        System.out.println(YELLOW + "Describe the item: " + RESET);
         description = input.nextLine();
-        System.out.println(YELLOW+"What is the price of the dish: "+RESET);
+        System.out.println(YELLOW + "What is the price of the dish: " + RESET);
         price = Integer.parseInt(input.nextLine());
         return item + "," + description + "," + price;
 
@@ -846,12 +871,12 @@ public class App {
         String[][] Order_Details_dup = new String[15][3];
         Boolean wantToOrder = true;
         int quantity, price;
-        System.out.println(YELLOW+"What do you want to order sir: "+RESET);
+        System.out.println(YELLOW + "What do you want to order sir: " + RESET);
         int i = 0;
         while (wantToOrder == true) {
             boolean item = true;
             while (item) {
-                System.out.println(YELLOW+"Dish: "+RESET);
+                System.out.println(YELLOW + "Dish: " + RESET);
                 item_name = input.nextLine();
                 String query1 = "SELECT * FROM Menu WHERE Item='" + item_name + "'";
                 try {
@@ -860,10 +885,10 @@ public class App {
                         Order_Details_dup[i][0] = item_name;
                         item = false;
                     } else {
-                        System.out.println(RED+BOLD+"Sorry sir, We dont serve this item!!"+RESET);
+                        System.out.println(RED + BOLD + "Sorry sir, We dont serve this item!!" + RESET);
                     }
                 } catch (Exception e) {
-                    System.out.println(RED+BOLD+e+RESET);
+                    System.out.println(RED + BOLD + e + RESET);
                 }
             }
             String query2 = "SELECT Price FROM Menu WHERE Item = '" + item_name + "'";
@@ -871,28 +896,28 @@ public class App {
                 ResultSet resultset2 = executeQuery(query2);
                 if (resultset2.next()) {
                     price = resultset2.getInt(1);
-                    System.out.println(YELLOW+"price: " + price+RESET);
+                    System.out.println(YELLOW + "price: " + price + RESET);
                     Order_Details_dup[i][2] = String.valueOf(price);
                 }
                 resultset2.close();
             } catch (Exception e) {
-                System.out.println(RED+BOLD+e+RESET);
+                System.out.println(RED + BOLD + e + RESET);
             }
-            System.out.println(YELLOW+"Quantity: "+RESET);
+            System.out.println(YELLOW + "Quantity: " + RESET);
             quantity = Integer.parseInt(input.nextLine());
             Order_Details_dup[i][1] = String.valueOf(quantity);
             while (true) {
-                System.out.println(YELLOW+"Anything else sir?...(yes/no)"+RESET);
+                System.out.println(YELLOW + "Anything else sir?...(yes/no)" + RESET);
                 order_choice = input.nextLine();
                 if (order_choice.equals("yes") || order_choice.equals("Yes") || order_choice.equals("YES")) {
                     i = i + 1;
                     break;
                 } else if (order_choice.equals("no") || order_choice.equals("No") || order_choice.equals("NO")) {
-                    System.out.println(BLUE+BOLD+"Thank you for Ordering sir!!!"+RESET);
+                    System.out.println(BLUE + BOLD + "Thank you for Ordering sir!!!" + RESET);
                     wantToOrder = false;
                     break;
                 } else {
-                    System.out.println(RED+BOLD+"Sorry sir!! We couldnt Understand that"+RESET);
+                    System.out.println(RED + BOLD + "Sorry sir!! We couldnt Understand that" + RESET);
                 }
             }
         }
@@ -934,7 +959,7 @@ public class App {
             }
             resultset.close();
         } catch (Exception e) {
-            System.out.println(RED+BOLD+e+RESET);
+            System.out.println(RED + BOLD + e + RESET);
         }
 
         // Assigning the Agent_Id And Username with its exact length array
@@ -955,7 +980,7 @@ public class App {
             }
             resultset1.close();
         } catch (Exception e) {
-            System.out.println(RED+BOLD+e+RESET);
+            System.out.println(RED + BOLD + e + RESET);
         }
 
         // Insert into orders table!
@@ -964,36 +989,36 @@ public class App {
                 + "','Food is Being Prepared')";
         try {
             execute(query);
-            System.out.println(BLUE+BOLD+"Order Placed Successfully!!"+RESET);
+            System.out.println(BLUE + BOLD + "Order Placed Successfully!!" + RESET);
         } catch (Exception e) {
             System.out.println(e);
         }
         System.out.println("");
-        System.out.println(GREEN+"Food is being prepared....."+RESET);
+        System.out.println(GREEN + "Food is being prepared....." + RESET);
         sleep(15);
         System.out.println(" ");
-        System.out.println(GREEN+"Wohooo!!!"+RESET);
-        System.out.println(GREEN+"Food Is Prepared!!! "+RESET);
+        System.out.println(GREEN + "Wohooo!!!" + RESET);
+        System.out.println(GREEN + "Food Is Prepared!!! " + RESET);
         System.out.println();
-        System.out.println(GREEN+assignedAgent + " has Picked your Order..."+RESET);
+        System.out.println(GREEN + assignedAgent + " has Picked your Order..." + RESET);
         System.out.println("");
-        System.out.println(GREEN+"\nHold On.........."+RESET);
+        System.out.println(GREEN + "\nHold On.........." + RESET);
 
         sleep(30);
         System.out.println("");
-        System.out.println(BLUE+BOLD+"Your Order has been successfully delivered..!!"+RESET);
-        System.out.println(YELLOW+"Thank you for Ordering!!"+RESET);
+        System.out.println(BLUE + BOLD + "Your Order has been successfully delivered..!!" + RESET);
+        System.out.println(YELLOW + "Thank you for Ordering!!" + RESET);
         System.out.println(" ");
 
         query = "UPDATE Orders SET DeliveryStatus = 'Delivered' WHERE Order_Id = '" + orderid + "'";
         try {
             execute(query);
         } catch (Exception e) {
-            System.out.println(RED+BOLD+e+RESET);
+            System.out.println(RED + BOLD + e + RESET);
         }
 
         // Print the Bill
-        System.out.println(YELLOW+"Please pay your Bill!!"+RESET);
+        System.out.println(YELLOW + "Please pay your Bill!!" + RESET);
         System.out.println("");
         smallHeader("BILL");
         BillDetails[0] = CurrentDate();
@@ -1005,7 +1030,7 @@ public class App {
         sleep(5);
         Boolean status = payment(input);
         if (status == true) {
-            System.out.println(BLUE+BOLD+"Done!"+RESET);
+            System.out.println(BLUE + BOLD + "Done!" + RESET);
         }
         System.out.println();
         assignRating(no_of_items, Rating, input, assignedAgent);
@@ -1016,14 +1041,14 @@ public class App {
 
     static String remove(Scanner input) {
         String username;
-        System.out.print(YELLOW+"Enter the Username: "+RESET);
+        System.out.print(YELLOW + "Enter the Username: " + RESET);
         username = input.nextLine();
         return username;
     }
 
     static String removeMenu(Scanner input) {
         String item;
-        System.out.print(YELLOW+"Enter the dish name you want to remove: "+RESET);
+        System.out.print(YELLOW + "Enter the dish name you want to remove: " + RESET);
         item = input.nextLine();
         return item;
     }
@@ -1040,7 +1065,7 @@ public class App {
             length = resultset.getInt(1);
             resultset.close();
         } catch (Exception e) {
-            System.out.println(RED+BOLD+e+RESET);
+            System.out.println(RED + BOLD + e + RESET);
         }
         return length;
     }
@@ -1063,7 +1088,7 @@ public class App {
             }
             return colNames;
         } catch (SQLException e) {
-            System.out.println(RED+BOLD+e+RESET);
+            System.out.println(RED + BOLD + e + RESET);
         }
         return null;
     }
@@ -1089,29 +1114,29 @@ public class App {
         while (pay.equals("not done")) {
             System.out.println();
             smallHeader("Payment Options");
-            System.out.println(YELLOW+"1. Cash"+RESET);
-            System.out.println(YELLOW+"2. Gpay/Phonepe"+RESET);
-            System.out.println(YELLOW+"3. Card (Currently Unavailable!)"+RESET);
+            System.out.println(YELLOW + "1. Cash" + RESET);
+            System.out.println(YELLOW + "2. Gpay/Phonepe" + RESET);
+            System.out.println(YELLOW + "3. Card (Currently Unavailable!)" + RESET);
             System.out.println();
-            System.out.println(YELLOW+"Enter your option"+RESET);
+            System.out.println(YELLOW + "Enter your option" + RESET);
             int choice = Integer.parseInt(input.nextLine());
             if (choice == 1) {
                 System.out.println();
-                System.out.println(YELLOW+"Please pay the cash: "+RESET);
+                System.out.println(YELLOW + "Please pay the cash: " + RESET);
                 sleep(5);
                 pay = "done";
                 Status = true;
             } else if (choice == 2) {
                 System.out.println();
-                System.out.println(YELLOW+"Please pay to the number '7978898712' "+RESET);
+                System.out.println(YELLOW + "Please pay to the number '7978898712' " + RESET);
                 sleep(5);
                 pay = "done";
                 Status = true;
             } else if (choice == 3) {
                 sleep(5);
-                System.out.println(RED+BOLD+"Sorry!"+RESET);
-                System.out.println(RED+BOLD+"This option is unavailable at the moment...."+RESET);
-                System.out.println(RED+BOLD+"Kindly choose other payment option..."+RESET);
+                System.out.println(RED + BOLD + "Sorry!" + RESET);
+                System.out.println(RED + BOLD + "This option is unavailable at the moment...." + RESET);
+                System.out.println(RED + BOLD + "Kindly choose other payment option..." + RESET);
             }
         }
         return Status;
@@ -1124,17 +1149,17 @@ public class App {
         // Print headers
         printSeparatorLine(columnWidths);
         for (int i = 0; i < headers.length; i++) {
-            System.out.printf(BLUE+"| %-" + columnWidths[i] + "s ", centerAlign(headers[i], columnWidths[i])+RESET);
+            System.out.printf(BLUE + "| %-" + columnWidths[i] + "s ", centerAlign(headers[i], columnWidths[i]) + RESET);
         }
-        System.out.println(BLUE+"|"+RESET);
+        System.out.println(BLUE + "|" + RESET);
 
         printSeparatorLine(columnWidths);
 
         // Print data row
         for (int i = 0; i < data.length; i++) {
-            System.out.printf(BLUE+"| %-" + columnWidths[i] + "s ", centerAlign(data[i], columnWidths[i])+RESET);
+            System.out.printf(BLUE + "| %-" + columnWidths[i] + "s ", centerAlign(data[i], columnWidths[i]) + RESET);
         }
-        System.out.println(BLUE+"|"+RESET);
+        System.out.println(BLUE + "|" + RESET);
 
         printSeparatorLine(columnWidths);
     }
@@ -1148,9 +1173,9 @@ public class App {
 
     private static void printSeparatorLine(int[] columnWidths) {
         for (int width : columnWidths) {
-            System.out.print(BLUE+"+" + "-".repeat(width + 2)+RESET);
+            System.out.print(BLUE + "+" + "-".repeat(width + 2) + RESET);
         }
-        System.out.println(BLUE+"+"+RESET);
+        System.out.println(BLUE + "+" + RESET);
     }
 
     public static String AssignDA(String[] agents) {
@@ -1164,22 +1189,23 @@ public class App {
         System.out.println();
         String query;
         System.out.println(
-                YELLOW+"We want one minute of your precious time for rating the food... Which will help us to serve you better!!"+RESET);
+                YELLOW + "We want one minute of your precious time for rating the food... Which will help us to serve you better!!"
+                        + RESET);
         for (int i = 0; i < numberOfItems.length; i++) {
-            System.out.println(YELLOW+"How was " + numberOfItems[i] + " out of 5:"+RESET);
+            System.out.println(YELLOW + "How was " + numberOfItems[i] + " out of 5:" + RESET);
             Rating[i] = Integer.parseInt(input.nextLine());
         }
-        System.out.println(YELLOW+"How do you rate our Agent " + agent+RESET);
+        System.out.println(YELLOW + "How do you rate our Agent " + agent + RESET);
         int agentRating = Integer.parseInt(input.nextLine());
         sleep(2);
-        System.out.println(BLUE+BOLD+"Thank you for Ordering...."+RESET);
+        System.out.println(BLUE + BOLD + "Thank you for Ordering...." + RESET);
         for (int i = 0; i < numberOfItems.length; i++) {
             query = "UPDATE Menu SET Rating = " + String.valueOf(Rating[i]) + " WHERE Item = '" + numberOfItems[i]
                     + "'";
             try {
                 execute(query);
             } catch (Exception e) {
-                System.out.println(RED+BOLD+e+RESET);
+                System.out.println(RED + BOLD + e + RESET);
             }
         }
         int agentid = fetchID(agent);
@@ -1187,7 +1213,7 @@ public class App {
         try {
             execute(query);
         } catch (Exception e) {
-            System.out.println(RED+BOLD+e+RESET);
+            System.out.println(RED + BOLD + e + RESET);
         }
     }
     // -----------------------------------------------------------------SLEEP---------------------------------------------------------------------------------------
@@ -1197,15 +1223,15 @@ public class App {
         int loadingInterval = 500; // 0.5 seconds
         int numDots = sleepDuration / loadingInterval;
 
-        System.out.println( GREEN+"Loading..."+RESET);
+        System.out.println(GREEN + "Loading..." + RESET);
 
         for (int i = 0; i < numDots; i++) {
-            System.out.print(BLUE+"."+RESET);
+            System.out.print(BLUE + "." + RESET);
             System.out.flush(); // Flush the output to ensure immediate printing
             try {
                 Thread.sleep(loadingInterval);
             } catch (InterruptedException e) {
-                System.out.println(RED+BOLD+e+RESET);
+                System.out.println(RED + BOLD + e + RESET);
             }
         }
 
@@ -1224,7 +1250,7 @@ public class App {
             resultset.close();
             return id;
         } catch (Exception e) {
-            System.out.println(RED+BOLD+e+RESET);
+            System.out.println(RED + BOLD + e + RESET);
         }
         return 0;
     }

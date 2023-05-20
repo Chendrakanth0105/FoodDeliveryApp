@@ -17,14 +17,21 @@ Meanwhile, the compiled output files will be generated in the `bin` folder by de
 
 # INTERFACES USED IN THE APP:
 ## a) Customer    b) Delivery Agent    c) Admin 
+
 <br>
 The User will be asked to choose the interface.<br>
 <br>
-- Now if the user choose "a", Then the meaning is he is a customer. So we redirect the customer to the "Customer Interface Page"
-<br>    After choosing "a", He will be given 3 Options
-<br>        1. Login
-<br>        2. Sign Up
-<br>        3. Exit
+
+- Now if the user choose "a", Then the meaning is he is a customer. So we redirect the customer to the "Customer Interface Page".<br>
+# a) Customer
+<br>    
+After choosing "a", He will be given 3 Options
+<br>        
+1. Login
+<br>        
+2. Sign Up
+<br>        
+3. Exit
 <br>
 <br>       - If he choose '1' it means that customer wants to login to his account. So we redirect the customer to the "Customer Login Page"
 <br>            - So user will be asked to enter his credentials (username and password) to login

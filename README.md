@@ -19,7 +19,10 @@ Meanwhile, the compiled output files will be generated in the `bin` folder by de
 ## a) Customer    b) Delivery Agent    c) Admin 
 <br>
 The User will be asked to choose the interface.<br>
+<br>
+<br>
 
+# a) Customer
 - Now if the user choose "a", Then the meaning is he is a customer. So we redirect the customer to the "Customer Interface Page"<br>
     - After choosing "a", He will be given 3 Options
         1. Login
@@ -27,7 +30,7 @@ The User will be asked to choose the interface.<br>
         3. Exit<br>
 
         - If he choose '1' it means that customer wants to login to his account. So we redirect the customer to the "Customer Login Page"
-            - So user will be asked to enter his credentials (username and password) to login
+            - So customer will be asked to enter his credentials (username and password) to login
             ### VALIDATION STEP:
                 - If the customer's entered username and password already appear in the customer login table inside the database, it is likely that the person has already registered using those details. We will allow him to properly log in.
                 - If the customer's entered username and password already does not appear in the customer login table inside the database, it is likely that the person has not registered using those details. We will not allow him to log in.
@@ -35,11 +38,11 @@ The User will be asked to choose the interface.<br>
                 1. Change your password
                 2. Order food
 
-                - If the customer choose the option '1', Then user will be asked to enter the new password. So we redirect the customer to the "Customer Password Change Page"
+                - If the customer choose the option '1', Then customer will be asked to enter the new password. So we redirect the customer to the "Customer Password Change Page"
                     ### VALIDATION STEP:
                     - If the customer enters the same password again in the new password option, then the customer will be given a error message.
                     - The customer will successfully change the password if he or she enters a different one, And the password will be updated in the database.
-                    
+
                 - If the customer choose the option '2', then it means that he wants to order some food. So we redirect the customer to the "Ordering Page"
                     - Customer will be displayed with the HealthyDOOR food menu from the database.
                     - Now we will ask the customer to order the food from the menu.
@@ -74,4 +77,32 @@ The User will be asked to choose the interface.<br>
                 - If the customer say "no", then the customer will be redirected to the "Customer Interface Page".
 
         - If he choose '3' it means that customer wants to Exit from the app. So we will end the program right away.
+<br>
+<br>
+
+# a) Delivery Agent
+- Now if the user choose "b", Then the meaning is he is a Delivery Agent who works in our company. So we redirect the Agent to the "Agent Interface Page"<br>
+    - After choosing "b", He will be given 3 Options
+        1. Login
+        2. Exit<br>
+
+        - If he choose '1' it means that Agent wants to login to his account. So we redirect the Agent to the "Agent Login Page"
+            - So Agent will be asked to enter his credentials (username and password) to login
+            ### VALIDATION STEP:
+                - If the Agent's entered username and password already appear in the Agent login table inside the database, it is likely that the person has already registered using those details. We will allow him to properly log in.
+                - If the Agent's entered username and password already does not appear in the Agent login table inside the database, it is likely that the person has not registered using those details. We will not allow him to log in.
+             - After successfull login the Agent will be provided with 2 options
+                1. Change your password
+                2. Your Dashboard
+                
+                - If the customer choose the option '1', Then agent will be asked to enter the new password. So we redirect the agent to the "Agent Password Change Page"
+                    ### VALIDATION STEP:
+                    - If the agent enters the same password again in the new password option, then the agent will be given a error message.
+                    - The agent will successfully change the password if he or she enters a different one, And the password will be updated in the database.
+                
+                - If the agent choose the option '2', then it means that he wants view his dashboard. So we redirect the agent to the "Dashboard Page"
+                    - Agent will be displayed with the deliveries, which the agent has delivered. we will fetch these details from the database.
+                    - Agent will be displayed with the Overall Ratings, which are given by the customers for his delivery. we will fetch these details from the database.
+                    
+                    
 

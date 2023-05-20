@@ -30,6 +30,7 @@ The User will be asked to choose the interface.<br>
 <br>
 <br>
 
+
 # a) Customer
 - Now if the user choose "a", Then the meaning is he is a customer. So we redirect the customer to the "Customer Interface Page"<br>
     - After choosing "a", He will be given 3 Options

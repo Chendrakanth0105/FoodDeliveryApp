@@ -178,4 +178,11 @@ The User will be asked to choose the interface.<br>
                             - Then the admin will be redirected back to the "Admin Operations Page"
 
                 - If he choose '8' it means that admin wants to Exit from the app. So we will end the program right away.
+<br>
+<br>
 
+FlowChart:
+<br>
+<br>
+
+![Flowchart](./Images/FlowChart.png)

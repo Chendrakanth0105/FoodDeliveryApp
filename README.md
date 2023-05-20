@@ -21,7 +21,7 @@ Meanwhile, the compiled output files will be generated in the `bin` folder by de
 <br>
 <br>
 
-![Flowchart](./images/HealthyDOOR.png)
+![HealthyDOOR](./images/HealthyDOOR.png)
 
 ![Flowchart](./images/Interfaces.png)
 

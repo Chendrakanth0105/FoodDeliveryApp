@@ -80,9 +80,9 @@ The User will be asked to choose the interface.<br>
 <br>
 <br>
 
-# a) Delivery Agent
+# b) Delivery Agent
 - Now if the user choose "b", Then the meaning is he is a Delivery Agent who works in our company. So we redirect the Agent to the "Agent Interface Page"<br>
-    - After choosing "b", He will be given 3 Options
+    - After choosing "b", He will be given 2 Options
         1. Login
         2. Exit<br>
 
@@ -103,6 +103,79 @@ The User will be asked to choose the interface.<br>
                 - If the agent choose the option '2', then it means that he wants view his dashboard. So we redirect the agent to the "Dashboard Page"
                     - Agent will be displayed with the deliveries, which the agent has delivered. we will fetch these details from the database.
                     - Agent will be displayed with the Overall Ratings, which are given by the customers for his delivery. we will fetch these details from the database.
-                    
-                    
+
+        - If he choose '2' it means that Agent wants to Exit from the app. So we will end the program right away.
+<br>
+<br>
+
+# c) Admin                 
+- Now if the user choose "c", Then the meaning is he is a Admin who runs the company. So we redirect the Admin to the "Admin Interface Page"<br>
+    - After choosing "c", He will be given 2 Options
+        1. Login
+        2. Exit<br>
+
+        - If he choose '1' it means that admin wants to login to his account. So we redirect the admin to the "Admin Login Page"
+            - So admin will be asked to enter his credentials (username and password) to login
+            ### VALIDATION STEP:
+                - If the Admin's entered username and password already appear in the Admin login table inside the database, it is likely that the person has already registered using those details. We will allow him to properly log in.
+                - If the Admin's entered username and password already does not appear in the Admin login table inside the database, it is likely that the person has not registered using those details. We will not allow him to log in.
+             - After successfull login the Admin will be provided with 8 options
+                1. Add an Admin
+                2. Hire a Delivery Agent
+                3. Add a new dish
+                4. Remove an Admin
+                5. Fire a Delivery Agent
+                6. Remove a dish
+                7. Display Dashboard
+                8. Exit
+
+                - If the admin choose the option '1' then the admin will be redirected to the "Add Admin Page"
+                    - Admin will be asked to enter the details of the new admin (username and password).
+                    - After entering the details, the admin will be added successfully to the database.
+                    - Then the admin will be redirected back to the "Admin Operations Page"
+                
+                - If the admin choose the option '2' then the admin will be redirected to the "Hiring an Employee Page"
+                    - Admin will be asked to enter the details of the new delivery agent (username, password, mobile number, email id, salary, agent_id).
+                        ### VALIDATION STEP:
+                        - If the Admin's enter the agent id which is already assigned to a agent then we throw an error.
+                        - If the Admin's enter the agent id which is not assigned to any agent then we procced further.
+                    - After entering the details, the delivery agent will be hired successfully and gets added to the database.
+                    - Then the admin will be redirected back to the "Admin Operations Page"
+                
+                - If the admin choose the option '3' then the admin will be redirected to the "Add a new Dish Page"
+                    - Admin will be asked to enter the details of the new dish (dish name, description and price of the dish).
+                    - After entering the details, the dish will be added successfully to the database.
+                    - Then the admin will be redirected back to the "Admin Operations Page"
+                
+                - If the admin choose the option '4' then the admin will be redirected to the "Remove Admin Page"
+                    - Admin will be asked to enter the username of the admin.
+                    - After entering the username, the admin will be deactivated successfully from the database.
+                    - Then the admin will be redirected back to the "Admin Operations Page"
+
+                - If the admin choose the option '5' then the admin will be redirected to the "Fire an Employee Page"
+                    - Admin will be asked to enter the username of the delivery agent.
+                    - After entering the username, the admin will be fired successfully from the database.
+                    - Then the admin will be redirected back to the "Admin Operations Page"
+
+                - If the admin choose the option '6' then the admin will be redirected to the "Remove a Dish Page"
+                    - Admin will be asked to enter the details of the dish (dish name).
+                    - After entering the details, the dish will be removed successfully from the database.
+                    - Then the admin will be redirected back to the "Admin Operations Page"
+                
+                - If the admin choose the option '7' then the admin will be redirected to the "Dashboard Page"
+                    - Admin will be provided with 2 options
+                        1. Detailed Information
+                        2. Analytics
+
+                        - If admin choose '1' then:
+                            - He can see the details of all Employees.
+                            - He can see Employee performance metrics.
+                            - He can see total orders placed.
+                        - If admin choose '2' then:
+                            - He can see the total number of orders.
+                            - He can see the total revenue generated.
+                            - He can see each item of the menu and the number of times it got ordered.
+                            - Then the admin will be redirected back to the "Admin Operations Page"
+
+                - If he choose '8' it means that admin wants to Exit from the app. So we will end the program right away.
 

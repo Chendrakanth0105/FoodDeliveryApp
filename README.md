@@ -21,10 +21,10 @@ Meanwhile, the compiled output files will be generated in the `bin` folder by de
 The User will be asked to choose the interface.<br>
 
 - Now if the user choose "a", Then the meaning is he is a customer. So we redirect the customer to the "Customer Interface Page"<br>
-    After choosing "a", He will be given 3 Options<br>
-        1. Login<br>
-        2. Sign Up<br>
-        3. Exit<br>
+<br>    After choosing "a", He will be given 3 Options<br>
+<br>        1. Login<br>
+<br>        2. Sign Up<br>
+<br>        3. Exit<br>
 <br>
         - If he choose '1' it means that customer wants to login to his account. So we redirect the customer to the "Customer Login Page"<br>
             - So user will be asked to enter his credentials (username and password) to login<br>

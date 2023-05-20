@@ -23,7 +23,7 @@ Meanwhile, the compiled output files will be generated in the `bin` folder by de
 
 ![HealthyDOOR](./Images/HealthyDOOR.png)
 
-![Flowchart](./images/Interfaces.png)
+![Flowchart](./Images/Interfaces.png)
 
 <br>
 The User will be asked to choose the interface.<br>
@@ -41,7 +41,7 @@ The User will be asked to choose the interface.<br>
         <br>
 <br>
 
-![Flowchart](./images/CustomerInterfacePage.png)
+![Flowchart](./Images/CustomerInterfacePage.png)
 
 <br>
 <br>
@@ -58,7 +58,7 @@ The User will be asked to choose the interface.<br>
 <br>
 <br>
 
-![Flowchart](./images/CustomerLoginCheck.png)
+![Flowchart](./Images/CustomerLoginCheck.png)
 
 <br>
 <br>
@@ -70,7 +70,7 @@ The User will be asked to choose the interface.<br>
 <br>
 <br>
 
-![Flowchart](./images/Cnewpasswrong.png)
+![Flowchart](./Images/Cnewpasswrong.png)
 
 <br>
 <br>
@@ -78,7 +78,7 @@ The User will be asked to choose the interface.<br>
 <br>
 <br>
 
-![Flowchart](./images/Cnewpass.png)
+![Flowchart](./Images/Cnewpass.png)
 
 <br>
 <br>
@@ -89,7 +89,7 @@ The User will be asked to choose the interface.<br>
 <br>
 <br>
 
-![Flowchart](./images/MenuDisplay.png)
+![Flowchart](./Images/MenuDisplay.png)
 
 <br>
 <br>
@@ -107,7 +107,7 @@ The User will be asked to choose the interface.<br>
 <br>
 <br>
 
-![Flowchart](./images/Order.png)
+![Flowchart](./Images/Order.png)
 
 <br>
 <br>    
@@ -122,7 +122,7 @@ The User will be asked to choose the interface.<br>
 <br>
 <br>
 
-![Flowchart](./images/Bill.png)
+![Flowchart](./Images/Bill.png)
 
 <br>
 <br>
@@ -130,7 +130,7 @@ The User will be asked to choose the interface.<br>
 <br>
 <br>
 
-![Flowchart](./images/Cash.png)
+![Flowchart](./Images/Cash.png)
 
 <br>
 <br>
@@ -140,7 +140,7 @@ The User will be asked to choose the interface.<br>
 <br>
 <br>
 
-![Flowchart](./images/GpayPhonepe.png)
+![Flowchart](./Images/GpayPhonepe.png)
 
 <br>
 <br>
@@ -150,7 +150,7 @@ The User will be asked to choose the interface.<br>
 <br>
 <br>
 
-![Flowchart](./images/Card.png)
+![Flowchart](./Images/Card.png)
 
 <br>
 <br>
@@ -160,7 +160,7 @@ The User will be asked to choose the interface.<br>
 <br>
 <br>
 
-![Flowchart](./images/Rating.png)
+![Flowchart](./Images/Rating.png)
 
 <br>
 <br>
@@ -173,7 +173,7 @@ The User will be asked to choose the interface.<br>
 <br>
 <br>
 
-![Flowchart](./images/ExitYes.png)
+![Flowchart](./Images/ExitYes.png)
 
 <br>
 <br>
@@ -187,7 +187,7 @@ The User will be asked to choose the interface.<br>
 <br>
 <br>
 
-![Flowchart](./images/Customersignup.png)
+![Flowchart](./Images/Customersignup.png)
 
 <br>
 <br>
@@ -199,7 +199,7 @@ The User will be asked to choose the interface.<br>
 <br>
 <br>
 
-![Flowchart](./images/ExitYes.png)
+![Flowchart](./Images/ExitYes.png)
 
 <br>
 <br>
@@ -212,7 +212,7 @@ The User will be asked to choose the interface.<br>
 <br>
 <br>
 
-![Flowchart](./images/Customerexit.png)
+![Flowchart](./Images/Customerexit.png)
 
 <br>
 <br>
@@ -226,7 +226,7 @@ The User will be asked to choose the interface.<br>
 <br>
 <br>
 
-![Flowchart](./images/AgentInterface.png)
+![Flowchart](./Images/AgentInterface.png)
 
 <br>
 <br>
@@ -241,7 +241,7 @@ The User will be asked to choose the interface.<br>
 <br>
 <br>
 
-![Flowchart](./images/AgentLogincheck.png)
+![Flowchart](./Images/AgentLogincheck.png)
 
 <br>
 <br>
@@ -259,7 +259,7 @@ The User will be asked to choose the interface.<br>
 <br>
 <br>
 
-![Flowchart](./images/Anewpasswrong.png)
+![Flowchart](./Images/Anewpasswrong.png)
 
 <br>
 <br>
@@ -267,7 +267,7 @@ The User will be asked to choose the interface.<br>
 <br>
 <br>
 
-![Flowchart](./images/Anewpass.png)
+![Flowchart](./Images/Anewpass.png)
 
 <br>
 <br>
@@ -279,7 +279,7 @@ The User will be asked to choose the interface.<br>
 <br>
 <br>
 
-![Flowchart](./images/AgentDashboard.png)
+![Flowchart](./Images/AgentDashboard.png)
 
 <br>
 <br>
@@ -289,7 +289,7 @@ The User will be asked to choose the interface.<br>
 <br>
 <br>
 
-![Flowchart](./images/AgentExit.png)
+![Flowchart](./Images/AgentExit.png)
 
 <br>
 <br>
@@ -305,7 +305,7 @@ The User will be asked to choose the interface.<br>
 <br>
 <br>
 
-![Flowchart](./images/AdminInterface.png)
+![Flowchart](./Images/AdminInterface.png)
 
 <br>
 <br>
@@ -321,7 +321,7 @@ The User will be asked to choose the interface.<br>
 <br>
 <br>
 
-![Flowchart](./images/AdminLoginwrong.png)
+![Flowchart](./Images/AdminLoginwrong.png)
 
 <br>
 <br>
@@ -329,7 +329,7 @@ The User will be asked to choose the interface.<br>
 <br>
 <br>
 
-![Flowchart](./images/AdminLogins.png)
+![Flowchart](./Images/AdminLogins.png)
 
 <br>
 <br>
@@ -347,7 +347,7 @@ The User will be asked to choose the interface.<br>
 <br>
 <br>
 
-![Flowchart](./images/Aoptions.png)
+![Flowchart](./Images/Aoptions.png)
 
 <br>
 <br>
@@ -360,7 +360,7 @@ The User will be asked to choose the interface.<br>
 <br>
 <br>
 
-![Flowchart](./images/addadmin.png)
+![Flowchart](./Images/addadmin.png)
 
 <br>
 <br>
@@ -377,7 +377,7 @@ The User will be asked to choose the interface.<br>
 <br>
 <br>
 
-![Flowchart](./images/HireAgent.png)
+![Flowchart](./Images/HireAgent.png)
 
 <br>
 <br>
@@ -391,7 +391,7 @@ The User will be asked to choose the interface.<br>
 <br>
 <br>
 
-![Flowchart](./images/adddish.png)
+![Flowchart](./Images/adddish.png)
 
 <br>
 <br>
@@ -405,7 +405,7 @@ The User will be asked to choose the interface.<br>
 <br>
 <br>
 
-![Flowchart](./images/removeadmin.png)
+![Flowchart](./Images/removeadmin.png)
 
 <br>
 <br>
@@ -419,7 +419,7 @@ The User will be asked to choose the interface.<br>
 <br>
 <br>
 
-![Flowchart](./images/fireagent.png)
+![Flowchart](./Images/fireagent.png)
 
 <br>
 <br>
@@ -433,7 +433,7 @@ The User will be asked to choose the interface.<br>
 <br>
 <br>
 
-![Flowchart](./images/removedish.png)
+![Flowchart](./Images/removedish.png)
 
 <br>
 <br>
@@ -452,7 +452,7 @@ The User will be asked to choose the interface.<br>
 <br>
 <br>
 
-![Flowchart](./images/Adashboard11.png)
+![Flowchart](./Images/Adashboard11.png)
 
 <br>
 <br>
@@ -460,7 +460,7 @@ The User will be asked to choose the interface.<br>
 <br>
 <br>
 
-![Flowchart](./images/Adashboar12.png)
+![Flowchart](./Images/Adashboar12.png)
 
 <br>
 <br>
@@ -475,7 +475,7 @@ The User will be asked to choose the interface.<br>
 <br>
 <br>
 
-![Flowchart](./images/Adashboard2.png)
+![Flowchart](./Images/Adashboard2.png)
 
 <br>
 <br>
@@ -486,7 +486,7 @@ The User will be asked to choose the interface.<br>
 <br>
 <br>
 
-![Flowchart](./images/ExitYes.png)
+![Flowchart](./Images/ExitYes.png)
 
 <br>
 <br>

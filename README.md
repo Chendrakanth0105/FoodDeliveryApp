@@ -26,12 +26,12 @@ The User will be asked to choose the interface.<br>
 # a) Customer
 <br>    
 After choosing "a", He will be given 3 Options
+<br>
+        1. Login
+<br>
+        2. Sign Up
 <br>        
-1. Login
-<br>        
-2. Sign Up
-<br>        
-3. Exit
+        3. Exit
 <br>
 <br>       - If he choose '1' it means that customer wants to login to his account. So we redirect the customer to the "Customer Login Page"
 <br>            - So user will be asked to enter his credentials (username and password) to login
